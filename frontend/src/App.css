@@ -1,24 +1,36 @@
-/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8f9fa;
 }
 
-.App {
-  min-height: 100vh;
+#root {
+  height: 100%;
+  width: 100%;
 }
 
-/* Common Components */
+.App {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -122,7 +134,12 @@ body {
 /* Dashboard Styles */
 .dashboard {
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .dashboard-header {
@@ -132,6 +149,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-header h1 {
@@ -164,6 +183,9 @@ body {
 
 .tasks-container {
   padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .no-tasks {
@@ -233,7 +255,12 @@ body {
 /* Admin Panel Styles */
 .admin-panel {
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .admin-header {
@@ -243,6 +270,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .admin-header h1 {
@@ -267,6 +296,7 @@ body {
   display: flex;
   background-color: #ffffff;
   border-bottom: 1px solid #dee2e6;
+  flex-shrink: 0;
 }
 
 .admin-tabs button {
@@ -284,6 +314,9 @@ body {
 
 .tasks-section, .users-section {
   padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .section-header {
