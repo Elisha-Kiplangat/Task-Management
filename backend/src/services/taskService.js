@@ -14,13 +14,13 @@ class TaskService {
       if (taskData.assignedTo) {
         const assignedUser = await db.select().from(userTable).where(eq(userTable.id, taskData.assignedTo)).limit(1);
         if (assignedUser.length > 0) {
-          // await emailService.sendTaskAssignmentEmail(
-          //   assignedUser[0].email,
-          //   assignedUser[0].name,
-          //   taskData.title,
-          //   taskData.description,
-          //   taskData.deadline
-          // );
+          await emailService.sendTaskAssignmentEmail(
+            assignedUser[0].email,
+            assignedUser[0].name,
+            taskData.title,
+            taskData.description,
+            taskData.deadline
+          );
         }
       }
 
