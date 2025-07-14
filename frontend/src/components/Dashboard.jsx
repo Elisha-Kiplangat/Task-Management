@@ -20,7 +20,8 @@ function Dashboard() {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:3001/api/tasks/my-tasks", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/tasks/my-tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +43,8 @@ function Dashboard() {
   const updateTaskStatus = async (taskId, newStatus) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3001/api/tasks/${taskId}/status`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/tasks/${taskId}/status`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -24,14 +24,15 @@ function AdminPanel() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem("token");
+      const API_URL = import.meta.env.VITE_API_URL;
       
       // Fetch tasks
-      const tasksResponse = await fetch("http://localhost:3001/api/tasks", {
+      const tasksResponse = await fetch(`${API_URL}/tasks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
       // Fetch users
-      const usersResponse = await fetch("http://localhost:3001/api/users", {
+      const usersResponse = await fetch(`${API_URL}/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -54,7 +55,8 @@ function AdminPanel() {
   const createTask = async (taskData) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:3001/api/tasks", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/tasks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +79,8 @@ function AdminPanel() {
   const createUser = async (userData) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:3001/api/users", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +105,8 @@ function AdminPanel() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3001/api/tasks/${taskId}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/tasks/${taskId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -122,7 +126,8 @@ function AdminPanel() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/users/${userId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
