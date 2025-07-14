@@ -13,7 +13,7 @@ const app = new Hono();
 
 // Middleware
 app.use('*', cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173'],
+  origin: ['http://localhost:3000', 'http://localhost:5173', 'https://task-management-inky-two.vercel.app'],
   credentials: true,
 }));
 app.use('*', logger());
