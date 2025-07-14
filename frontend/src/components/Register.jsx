@@ -92,9 +92,6 @@ function Register() {
           <Link to="/login">Already have an account?</Link>
         </form>
       </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
-      </div>
     </div>
   );
 }
