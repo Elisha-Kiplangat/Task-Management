@@ -1,5 +1,7 @@
 ## Technologies Used
 
+- **JavaScript**
+
 ### Backend
 - **Hono** (Framework)
 - **Drizzle ORM** (Database ORM)
