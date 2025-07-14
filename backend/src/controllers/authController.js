@@ -29,7 +29,7 @@ class AuthController {
 
       const user = await userService.createUser({ name, email, password, role });
 
-      // Generate JWT token
+      // JWT token
       const token = jwt.sign(
         { id: user.id, email: user.email, role: user.role },
         process.env.JWT_SECRET,
@@ -55,7 +55,6 @@ class AuthController {
         return c.json({ error: 'Email and password are required' }, 400);
       }
 
-      // Find user
       const user = await userService.getUserByEmail(email);
       if (!user) {
         return c.json({ error: 'Invalid credentials' }, 401);
@@ -67,7 +66,7 @@ class AuthController {
         return c.json({ error: 'Invalid credentials' }, 401);
       }
 
-      // Generate JWT token
+      // JWT token
       const token = jwt.sign(
         { id: user.id, email: user.email, role: user.role },
         process.env.JWT_SECRET,
